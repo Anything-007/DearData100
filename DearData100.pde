@@ -15,29 +15,47 @@ void setup() {
   }
 }
 
+
+float calculateStarSize(String amountBand) {
+
+  if (amountBand.equals("under_5")) {
+      return 3;
+    }
+    else if (amountBand.equals("5_to_15")) {
+      return 5;
+    }
+    else if (amountBand.equals("15_to_40")) {
+      return 10;
+    }
+    else if (amountBand.equals("40_to_100")) {
+      return 15;
+    }
+    else if (amountBand.equals("100_plus")) {
+      return 20;
+    }
+    else{
+      return 5;
+    }
+    
+
+}
+
+
+
+
+
 void draw(){
 
   background(0,0,0);
   for(int i = 0 ; i < spending.getRowCount() ; i++){    
-    float starSize = 5;
-
+    
     String amountBand = spending.getString(i, "amount_band");
-    if (amountBand.equals("under_5")) {
-      starSize = 3;
+    float starSize = calculateStarSize(amountBand);
 
-}
-    else if (amountBand.equals("5_to_15")) {
-      starSize = 5;
-    }
-    else if (amountBand.equals("15_to_40")) {
-      starSize = 10;
-    }
-    else if (amountBand.equals("40_to_100")) {
-      starSize = 15;
-    }
-    else if (amountBand.equals("100_plus")) {
-      starSize = 20;
-    }
+    
+
+   
+    
   
 
 
