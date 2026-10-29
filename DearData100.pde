@@ -20,7 +20,25 @@ void draw(){
   background(0,0,0);
   for(int i = 0 ; i < spending.getRowCount() ; i++){    
     float starSize = 5;
-    //float starSize = spending.getString(i, "category");
+
+    String amountBand = spending.getString(i, "amount_band");
+    if (amountBand.equals("under_5")) {
+      starSize = 3;
+
+}
+    else if (amountBand.equals("5_to_15")) {
+      starSize = 5;
+    }
+    else if (amountBand.equals("15_to_40")) {
+      starSize = 10;
+    }
+    else if (amountBand.equals("40_to_100")) {
+      starSize = 15;
+    }
+    else if (amountBand.equals("100_plus")) {
+      starSize = 20;
+    }
+  
 
 
 
