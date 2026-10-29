@@ -47,10 +47,13 @@ float calculateStarSize(String amountBand) {
 void draw(){
 
   background(0,0,0);
+  noStroke();
   for(int i = 0 ; i < spending.getRowCount() ; i++){    
     
     String amountBand = spending.getString(i, "amount_band");
     float starSize = calculateStarSize(amountBand);
+
+    int rotations = 3;
 
     
 
@@ -61,8 +64,13 @@ void draw(){
 
 
 
-    int column = i % 10;
-    int row = i / 10;
+    float centreX = 300;
+    float centreY = 200;
+    float radius = 10 + i * 0.5;
+    float angle = i * TWO_PI * rotations / spending.getRowCount();
+    float x = centreX + cos(angle) * radius;
+    float y = centreY + sin(angle) * radius;
+
 
     
     String category = spending.getString(i, "category");
@@ -77,6 +85,7 @@ void draw(){
     }
 
     else if (category.equals("Entertainment")) {
+    
     fill(255, 0, 0);
 
     }
@@ -85,7 +94,7 @@ void draw(){
     }
     
     
-    circle(50 + column * 45, 50 + row * 10, starSize);
+    circle(x, y, starSize);
 
 
 
